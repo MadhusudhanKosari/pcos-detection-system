@@ -1,0 +1,174 @@
+<!-- templates/result.html -->
+{% extends "base.html" %}
+
+{% block title %}PCOS Assessment Result{% endblock %}
+
+{% block content %}
+<!-- Result Header -->
+<div class="result-header">
+    <h1><i class="fas fa-chart-line"></i> PCOS Risk Assessment Result</h1>
+    <p>Analysis completed with AI-powered multimodal fusion</p>
+    
+    <div class="prediction-badge">
+        {% if prediction == 'High Risk' %}
+            <i class="fas fa-exclamation-triangle" style="color: var(--danger);"></i>
+        {% else %}
+            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+        {% endif %}
+        {{ prediction }}
+    </div>
+    
+    <div class="w-100">
+        <div class="d-flex justify-between align-center mb-4">
+            <span>Confidence Level:</span>
+            <strong>{{ confidence }}%</strong>
+        </div>
+        <div class="confidence-meter">
+            <div class="confidence-fill" style="width: {{ confidence }}%"></div>
+        </div>
+    </div>
+    
+    <a href="/" class="btn btn-secondary">
+        <i class="fas fa-redo"></i> New Assessment
+    </a>
+</div>
+
+<!-- Model Probabilities -->
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-robot"></i> Model Probabilities & Fusion Analysis
+    </div>
+    <div class="probability-cards">
+        <div class="prob-card">
+            <h4><i class="fas fa-clipboard-check"></i> Clinical Model</h4>
+            <div class="prob-value">{{ clinical_prob }}</div>
+            <p>Based on patient parameters & history</p>
+        </div>
+        
+        <div class="prob-card">
+            <h4><i class="fas fa-eye"></i> Image CNN Model</h4>
+            <div class="prob-value">{{ image_prob }}</div>
+            <p>Ultrasound image analysis</p>
+        </div>
+        
+        <div class="prob-card">
+            <h4><i class="fas fa-link"></i> Fusion Mode</h4>
+            <div class="prob-value">{{ fusion_mode }}</div>
+            <p>Combined decision strategy</p>
+        </div>
+    </div>
+</div>
+
+<!-- Clinical Explanation -->
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-chart-bar"></i> Clinical Feature Importance (SHAP Analysis)
+    </div>
+    <ul class="feature-list">
+        {% for f in clinical_features %}
+        <li>
+            <span>{{ f.split(':')[0] }}</span>
+            <span class="feature-impact">{{ f.split(':')[1] if ':' in f else 'High Impact' }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <div class="explanation-images">
+        <div class="explanation-img">
+            <h5 class="text-center mt-4">SHAP Feature Importance Plot</h5>
+            <img src="/static/explainability/shap_plot.png" alt="SHAP Analysis">
+            <p class="text-center info mt-2">Features contributing to prediction decision</p>
+        </div>
+    </div>
+</div>
+
+<!-- Ultrasound Explanation -->
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-search-plus"></i> Ultrasound Image Analysis (Grad-CAM)
+    </div>
+    <p class="info"><i class="fas fa-info-circle"></i> Heatmap shows regions of interest identified by AI in ultrasound</p>
+    
+    <div class="explanation-images">
+        <div class="explanation-img">
+            <h5 class="text-center mt-4">Grad-CAM Visualization</h5>
+            <img src="/static/explainability/gradcam_result.jpg?v={{ confidence }}" alt="Grad-CAM Analysis">
+            <p class="text-center info mt-2">Red areas indicate high attention regions for PCOS detection</p>
+        </div>
+    </div>
+</div>
+
+<!-- Medical Notes -->
+<div class="card medical-notes">
+    <div class="section-title">
+        <i class="fas fa-notes-medical"></i> Medical Notes & Next Steps
+    </div>
+    <p><strong>Important:</strong> This AI-assisted analysis is for <strong>clinical decision support only</strong>. 
+    Final diagnosis must be confirmed by a certified gynecologist through comprehensive evaluation.</p>
+    
+    <div class="mt-4">
+        <h5>Recommended Actions:</h5>
+        <ul class="precautions-list">
+            <li><i class="fas fa-check-circle"></i> Schedule appointment with gynecologist</li>
+            <li><i class="fas fa-check-circle"></i> Complete hormonal profile tests</li>
+            <li><i class="fas fa-check-circle"></i> Discuss lifestyle modifications</li>
+            <li><i class="fas fa-check-circle"></i> Regular follow-up monitoring</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Specialists & Resources -->
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-user-md"></i> Connect With Specialists
+    </div>
+    <div class="specialists-grid">
+        <div class="specialist-card">
+            <div class="specialist-icon">
+                <i class="fas fa-female"></i>
+            </div>
+            <h4>Gynecologist</h4>
+            <p>PCOS diagnosis & treatment</p>
+            <button class="btn btn-primary mt-4">Find Specialist</button>
+        </div>
+        
+        <div class="specialist-card">
+            <div class="specialist-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <h4>Endocrinologist</h4>
+            <p>Hormonal management</p>
+            <button class="btn btn-primary mt-4">Find Specialist</button>
+        </div>
+        
+        <div class="specialist-card">
+            <div class="specialist-icon">
+                <i class="fas fa-apple-alt"></i>
+            </div>
+            <h4>Nutritionist</h4>
+            <p>Diet & lifestyle guidance</p>
+            <button class="btn btn-primary mt-4">Find Specialist</button>
+        </div>
+    </div>
+</div>
+
+<!-- Report Download -->
+<div class="card text-center">
+    <div class="section-title">
+        <i class="fas fa-file-medical-alt"></i> Generate Report
+    </div>
+    <a href="/download_report" class="btn btn-primary">
+        <i class="fas fa-download btn-icon"></i> Download Complete Medical Report (PDF)
+    </a>
+    <p class="mt-4 info">Includes all findings, explanations, and recommendations</p>
+</div>
+
+<!-- Back to Assessment -->
+<div class="card text-center">
+    <h3>Perform Another Assessment?</h3>
+    <p>Screen another patient or update current parameters</p>
+    <a href="/" class="btn btn-secondary">
+        <i class="fas fa-redo btn-icon"></i> Start New PCOS Assessment
+    </a>
+</div>
+{% endblock %}

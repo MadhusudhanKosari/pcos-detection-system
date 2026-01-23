@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}PCOS Resources{% endblock %}
+
+{% block content %}
+<div class="hero-header">
+    <h1>PCOS Resources & Support</h1>
+    <p class="subtitle">Educational Materials, Support Groups & Management Tools</p>
+</div>
+
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-book-medical"></i> Educational Resources
+    </div>
+    <div class="specialists-grid">
+        <div class="specialist-card">
+            <div class="specialist-icon">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <h4>PCOS Guidelines</h4>
+            <p>International evidence-based guidelines</p>
+            <button class="btn btn-secondary mt-4">Download PDF</button>
+        </div>
+        
+        <div class="specialist-card">
+            <div class="specialist-icon">
+                <i class="fas fa-video"></i>
+            </div>
+            <h4>Educational Videos</h4>
+            <p>Understanding PCOS management</p>
+            <button class="btn btn-secondary mt-4">Watch Now</button>
+        </div>
+        
+        <div class="specialist-card">
+            <div class="specialist-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h4>Symptom Tracker</h4>
+            <p>Monitor cycles & symptoms</p>
+            <button class="btn btn-secondary mt-4">Start Tracking</button>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-utensils"></i> Nutrition & Lifestyle
+    </div>
+    <div class="form-grid">
+        <div class="form-group">
+            <h5><i class="fas fa-apple-alt text-success"></i> Dietary Recommendations</h5>
+            <ul class="precautions-list">
+                <li><i class="fas fa-check"></i> Low glycemic index foods</li>
+                <li><i class="fas fa-check"></i> High fiber intake</li>
+                <li><i class="fas fa-check"></i> Anti-inflammatory foods</li>
+                <li><i class="fas fa-check"></i> Balanced protein sources</li>
+            </ul>
+        </div>
+        
+        <div class="form-group">
+            <h5><i class="fas fa-running text-primary"></i> Exercise Guidelines</h5>
+            <ul class="precautions-list">
+                <li><i class="fas fa-check"></i> 150 mins moderate exercise/week</li>
+                <li><i class="fas fa-check"></i> Strength training 2x/week</li>
+                <li><i class="fas fa-check"></i> Stress-reducing activities</li>
+                <li><i class="fas fa-check"></i> Consistency over intensity</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-hands-helping"></i> Support & Community
+    </div>
+    <div class="form-grid">
+        <div class="prob-card">
+            <h4><i class="fas fa-comments"></i> Support Groups</h4>
+            <p>Connect with others facing PCOS</p>
+            <button class="btn btn-primary mt-4">Join Community</button>
+        </div>
+        
+        <div class="prob-card">
+            <h4><i class="fas fa-question-circle"></i> Q&A Forum</h4>
+            <p>Ask questions to experts</p>
+            <button class="btn btn-primary mt-4">Browse Questions</button>
+        </div>
+        
+        <div class="prob-card">
+            <h4><i class="fas fa-calendar-check"></i> Webinars</h4>
+            <p>Live sessions with specialists</p>
+            <button class="btn btn-primary mt-4">View Schedule</button>
+        </div>
+    </div>
+</div>
+
+<div class="card medical-notes">
+    <div class="section-title">
+        <i class="fas fa-mobile-alt"></i> Mobile Apps for PCOS Management
+    </div>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background: var(--primary-light);">
+                <th style="padding: 15px; text-align: left;">App Name</th>
+                <th style="padding: 15px; text-align: left;">Purpose</th>
+                <th style="padding: 15px; text-align: left;">Platform</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 15px;">Flo Period Tracker</td>
+                <td style="padding: 15px;">Cycle tracking & predictions</td>
+                <td style="padding: 15px;">iOS, Android</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 15px;">MyFitnessPal</td>
+                <td style="padding: 15px;">Nutrition & weight management</td>
+                <td style="padding: 15px;">iOS, Android</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 15px;">Headspace</td>
+                <td style="padding: 15px;">Stress management & meditation</td>
+                <td style="padding: 15px;">iOS, Android</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="card text-center">
+    <h3>Emergency Contact</h3>
+    <p>If experiencing severe symptoms, contact healthcare provider immediately</p>
+    <div class="mt-4">
+        <button class="btn btn-secondary">
+            <i class="fas fa-phone"></i> Emergency Helpline: 1-800-PCOS-HELP
+        </button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}About PCOS{% endblock %}
+
+{% block content %}
+<div class="hero-header">
+    <h1>Understanding PCOS</h1>
+    <p class="subtitle">Polycystic Ovary Syndrome: Symptoms, Diagnosis & Management</p>
+</div>
+
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-info-circle"></i> What is PCOS?
+    </div>
+    <p>Polycystic Ovary Syndrome (PCOS) is a common hormonal disorder affecting 1 in 10 women of reproductive age. 
+    It involves hormonal imbalance, metabolism problems, and ovarian dysfunction.</p>
+    
+    <div class="mt-4">
+        <h4>Key Characteristics:</h4>
+        <ul class="precautions-list">
+            <li><i class="fas fa-egg"></i> Multiple small cysts on ovaries</li>
+            <li><i class="fas fa-hormone"></i> Hormonal imbalance (high androgens)</li>
+            <li><i class="fas fa-calendar-times"></i> Irregular menstrual cycles</li>
+            <li><i class="fas fa-weight"></i> Weight management challenges</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-exclamation-triangle"></i> Common Symptoms
+    </div>
+    <div class="specialists-grid">
+        <div class="specialist-card">
+            <div class="specialist-icon" style="background: var(--primary-light);">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h4>Menstrual Irregularities</h4>
+            <p>Infrequent, prolonged, or absent periods</p>
+        </div>
+        
+        <div class="specialist-card">
+            <div class="specialist-icon" style="background: var(--accent);">
+                <i class="fas fa-weight"></i>
+            </div>
+            <h4>Weight Issues</h4>
+            <p>Unexplained weight gain, difficulty losing weight</p>
+        </div>
+        
+        <div class="specialist-card">
+            <div class="specialist-icon" style="background: var(--primary-light);">
+                <i class="fas fa-face-frown"></i>
+            </div>
+            <h4>Skin & Hair</h4>
+            <p>Acne, excessive hair growth, hair thinning</p>
+        </div>
+    </div>
+</div>
+
+<div class="card medical-notes">
+    <div class="section-title">
+        <i class="fas fa-stethoscope"></i> Diagnosis Criteria (Rotterdam Criteria)
+    </div>
+    <p>Diagnosis requires at least 2 of these 3 features:</p>
+    <ol style="padding-left: 20px; margin: 15px 0;">
+        <li><strong>Oligo/anovulation:</strong> Irregular or absent ovulation</li>
+        <li><strong>Hyperandrogenism:</strong> Clinical or biochemical signs of excess male hormones</li>
+        <li><strong>Polycystic ovaries:</strong> ≥12 follicles per ovary on ultrasound</li>
+    </ol>
+</div>
+
+<div class="card">
+    <div class="section-title">
+        <i class="fas fa-heart"></i> Long-term Health Risks
+    </div>
+    <div class="form-grid">
+        <div class="form-group">
+            <h5><i class="fas fa-heartbeat text-danger"></i> Metabolic Risks</h5>
+            <ul>
+                <li>Type 2 Diabetes</li>
+                <li>Cardiovascular disease</li>
+                <li>High blood pressure</li>
+                <li>High cholesterol</li>
+            </ul>
+        </div>
+        
+        <div class="form-group">
+            <h5><i class="fas fa-baby text-info"></i> Reproductive Risks</h5>
+            <ul>
+                <li>Infertility</li>
+                <li>Pregnancy complications</li>
+                <li>Endometrial cancer risk</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="card text-center">
+    <h3>Ready to Assess PCOS Risk?</h3>
+    <p>Use our AI-powered screening tool for early detection</p>
+    <a href="/" class="btn btn-primary">
+        <i class="fas fa-stethoscope"></i> Start PCOS Screening
+    </a>
+</div>
+{% endblock %}

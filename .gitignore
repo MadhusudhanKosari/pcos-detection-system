@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (DO NOT DEPLOY)
+data/raw/
+data/image_dataset/
+data/processed/
+
+# Training outputs
+outputs/
+
+# Uploads (runtime)
+uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual env
+venv/
+.env
